@@ -28,7 +28,7 @@
     },
     "vmSize": {
       "type": "string",
-      "defaultValue": "Standard_F1",
+      "defaultValue": "Standard_D1",
       "metadata": {
         "description": "VM size for the Docker host."
       }
@@ -68,7 +68,7 @@
     {
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[parameters('newStorageAccountName')]",
-      "apiVersion": "2016-01-01",
+      "apiVersion": "2015-06-15",
       "location": "[resourceGroup().location]",
       "kind": "Storage",
       "sku": {
@@ -76,7 +76,7 @@
       }
     },
     {
-      "apiVersion": "2017-04-01",
+      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/publicIPAddresses",
       "name": "[variables('publicIPAddressName')]",
       "location": "[resourceGroup().location]",
@@ -88,7 +88,7 @@
       }
     },
     {
-      "apiVersion": "2017-04-01",
+      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/virtualNetworks",
       "name": "[variables('virtualNetworkName')]",
       "location": "[resourceGroup().location]",
@@ -109,7 +109,7 @@
       }
     },
     {
-      "apiVersion": "2017-04-01",
+      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkInterfaces",
       "name": "[variables('nicName')]",
       "location": "[resourceGroup().location]",
@@ -135,7 +135,7 @@
       }
     },
     {
-      "apiVersion": "2017-03-30",
+      "apiVersion": "2015-06-15",
       "type": "Microsoft.Compute/virtualMachines",
       "name": "[variables('vmName')]",
       "location": "[resourceGroup().location]",
@@ -180,7 +180,7 @@
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(variables('vmName'),'/', variables('extensionName'))]",
-      "apiVersion": "2017-03-30",
+      "apiVersion": "2015-06-15",
       "location": "[resourceGroup().location]",
       "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
